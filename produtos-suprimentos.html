@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insumos & Suprimentos - Leantech</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container-fluid nav">
+            <a href="index.html#home" style="display: block;"><img src="logo.png" alt="Leantech Automação Comercial"
+                    class="logo-img"></a>
+            <ul class="nav-links">
+
+                <li class="dropdown">
+                    <a href="index.html#produtos">Produtos <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="produtos-informatica.html">Computadores & Peças</a></li>
+                        <li><a href="produtos-suprimentos.html">Insumos & Suprimentos</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#automacao">Automação</a></li>
+                <li><a href="certificado-digital.html">Certificado Digital</a></li>
+
+                <li><a href="index.html#equipe">Equipe</a></li>
+                <li><a href="index.html#localizacao">Localização</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+                <li>
+                    <a href="carrinho.html" class="nav-cart">
+                        Meu Carrinho
+                        <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero detail-hero active">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Insumos <br><span class="gradient-text">& Suprimentos Industriais</span></h1>
+                    <p>Qualidade garantida em bobinas, ribbons e etiquetas para seu sistema de automação comercial.
+                    </p>
+                    <a href="https://wa.me/551238333927" class="btn-cta">Solicitar Orçamento</a>
+                </div>
+            </div>
+            <div class="hero-bg" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+            </div>
+        </section>
+
+        <section class="detail-content active">
+            <div class="container">
+                <div class="section-title" style="margin-bottom: 3rem;">
+                    <h2 class="gradient-text">Nossos Insumos</h2>
+                    <p>Qualidade industrial em bobinas, ribbons e etiquetas para seu negócio.</p>
+                </div>
+
+                <!-- Filtro de Categorias -->
+                <div class="filter-container" style="margin-bottom: 3rem; text-align: center;">
+                    <select id="productFilter" onchange="filterProducts(this.value)"
+                        style="padding: 1rem 2rem; border-radius: 99px; border: 2px solid #e2e8f0; font-family: inherit; font-weight: 600; color: var(--text-main); cursor: pointer; outline: none; transition: var(--transition); background: white; min-width: 250px;">
+                        <option value="all">Todos os Insumos</option>
+                        <option value="bobina">Bobinas Térmicas</option>
+                        <option value="ribbon">Ribbons</option>
+                        <option value="etiqueta">Etiquetas</option>
+                    </select>
+                </div>
+
+                <div class="team-grid">
+                    <!-- Bobina Térmica 80x40 -->
+                    <div class="team-card store-card" data-category="bobina" style="cursor: pointer;"
+                        onclick="openProductModal('Bobina Térmica 80x40', 'bobina_branca.png', 'Papel térmico de alta qualidade para cupons fiscais. Caixa com 30 unidades. Excelente nitidez de impressão.', 'R$ 145,00', 45)">
+                        <div class="team-photo">
+                            <img src="bobina_branca.png" alt="Bobina Térmica Branca" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 145,00</div>
+                        <h3 class="team-name">Bobina Térmica 80x40</h3>
+                        <p class="team-role">Branca - Caixa c/ 30 un</p>
+                    </div>
+
+                    <!-- Etiqueta 50x25 1 Coluna -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 50x25 (1 Coluna)', 'etiqueta_50x25_1col.png', 'Etiqueta adesiva Couchê 50mm x 25mm em 1 coluna. Ideal para identificação de produtos e preços.', 'R$ 22,00', 120)">
+                        <div class="team-photo">
+                            <img src="etiqueta_50x25_1col.png" alt="Etiqueta 50x25 1 Coluna" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 22,00</div>
+                        <h3 class="team-name">Etiqueta 50x25 (1 Coluna)</h3>
+                        <p class="team-role">Adesiva Couchê</p>
+                    </div>
+
+                    <!-- Etiqueta 50x25 2 Colunas -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 50x25 (2 Colunas)', 'etiqueta_50x25_2col.png', 'Etiqueta adesiva Couchê 50mm x 25mm em 2 colunas. Maior rendimento por metro de fita.', 'R$ 24,00', 85)">
+                        <div class="team-photo">
+                            <img src="etiqueta_50x25_2col.png" alt="Etiqueta 50x25 2 Colunas" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 24,00</div>
+                        <h3 class="team-name">Etiqueta 50x25 (2 Colunas)</h3>
+                        <p class="team-role">Maior Produtividade</p>
+                    </div>
+
+                    <!-- Etiqueta Térmica 40x40 -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta Térmica 40x40', 'etiqueta_balanca_40x40.png', 'Etiqueta térmica direta para balanças Toledo e Filizola. Não requer ribbon.', 'R$ 15,00', 200)">
+                        <div class="team-photo">
+                            <img src="etiqueta_balanca_40x40.png" alt="Etiqueta Balança 40x40" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 15,00</div>
+                        <h3 class="team-name">Etiqueta Térmica 40x40</h3>
+                        <p class="team-role">Ideal para Balanças</p>
+                    </div>
+
+                    <!-- Bobina Térmica 57x30 -->
+                    <div class="team-card store-card" data-category="bobina" style="cursor: pointer;"
+                        onclick="openProductModal('Bobina Térmica 57x30', 'bobina_amarela.png', 'Bobina para máquinas de cartão de crédito e débito (POS/Smart POS). Papel de alta sensibilidade e durabilidade.', 'R$ 45,00', 150)">
+                        <div class="team-photo">
+                            <img src="bobina_amarela.png" alt="Bobina POS Amarela" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 45,00</div>
+                        <h3 class="team-name">Bobina Térmica 57x30</h3>
+                        <p class="team-role">Amarela - P/ Cartão</p>
+                    </div>
+
+                    <!-- Gôndola 70x30 Branca -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Gôndola 70x30 Branca', 'etiqueta_gondola_branca.png', 'Etiqueta para gôndola de supermercados e lojas. Papel cartão branco de alta qualidade.', 'R$ 25,00', 180)">
+                        <div class="team-photo">
+                            <img src="etiqueta_gondola_branca.png" alt="Etiqueta Gôndola Branca" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 25,00</div>
+                        <h3 class="team-name">Gôndola 70x30 Branca</h3>
+                        <p class="team-role">Supermercados e Lojas</p>
+                    </div>
+
+                    <!-- Gôndola 70x30 Laranja -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Gôndola 70x30 Laranja', 'etiqueta_gondola_laranja.png', 'Etiqueta para gôndola em cor laranja. Ideal para destacar promoções e ofertas especiais.', 'R$ 28,00', 95)">
+                        <div class="team-photo">
+                            <img src="etiqueta_gondola_laranja.png" alt="Etiqueta Gôndola Laranja" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 28,00</div>
+                        <h3 class="team-name">Gôndola 70x30 Laranja</h3>
+                        <p class="team-role">Ideal para Promoções</p>
+                    </div>
+
+                    <!-- Ribbon Cera 110x74 -->
+                    <div class="team-card store-card" data-category="ribbon" style="cursor: pointer;"
+                        onclick="openProductModal('Ribbon Cera 110x74', 'ribbon_cera_new.png', 'Ribbon de cera para impressão em etiquetas Couchê. Alta qualidade e durabilidade.', 'R$ 12,00', 300)">
+                        <div class="team-photo">
+                            <img src="ribbon_cera_new.png" alt="Ribbon Cera" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 12,00</div>
+                        <h3 class="team-name">Ribbon Cera 110x74</h3>
+                        <p class="team-role">Para Etiquetas Couchê</p>
+                    </div>
+
+                    <!-- Ribbon Misto 110x74 -->
+                    <div class="team-card store-card" data-category="ribbon" style="cursor: pointer;"
+                        onclick="openProductModal('Ribbon Misto 110x74', 'ribbon_misto_new.png', 'Ribbon misto de alta resistência. Ideal para BOPP e etiquetas que requerem maior durabilidade.', 'R$ 35,00', 75)">
+                        <div class="team-photo">
+                            <img src="ribbon_misto_new.png" alt="Ribbon Misto" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 35,00</div>
+                        <h3 class="team-name">Ribbon Misto 110x74</h3>
+                        <p class="team-role">Resistência Superior</p>
+                    </div>
+
+                    <!-- Ribbon Resina 110x74 -->
+                    <div class="team-card store-card" data-category="ribbon" style="cursor: pointer;"
+                        onclick="openProductModal('Ribbon Resina 110x74', 'ribbon_resina_new.png', 'Ribbon de resina para máxima durabilidade. Resistente a produtos químicos e abrasão.', 'R$ 55,00', 40)">
+                        <div class="team-photo">
+                            <img src="ribbon_resina_new.png" alt="Ribbon Resina" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 55,00</div>
+                        <h3 class="team-name">Ribbon Resina 110x74</h3>
+                        <p class="team-role">Durabilidade Máxima</p>
+                    </div>
+
+                    <!-- Etiqueta 100x60 1 Coluna -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 100x60 (1 Coluna)', 'etiqueta_100x60.png', 'Etiqueta adesiva Couchê 100mm x 60mm em 1 coluna. Ideal para produtos maiores.', 'R$ 32,00', 60)">
+                        <div class="team-photo">
+                            <img src="etiqueta_100x60.png" alt="Etiqueta 100x60" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 32,00</div>
+                        <h3 class="team-name">Etiqueta 100x60 (1 Coluna)</h3>
+                        <p class="team-role">Adesiva Couchê</p>
+                    </div>
+
+                    <!-- Etiqueta 100x140 1 Coluna -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 100x140 (1 Coluna)', 'etiqueta_100x140.png', 'Etiqueta adesiva Couchê 100mm x 140mm em 1 coluna. Para identificação de volumes grandes.', 'R$ 48,00', 35)">
+                        <div class="team-photo">
+                            <img src="etiqueta_100x140.png" alt="Etiqueta 100x140" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 48,00</div>
+                        <h3 class="team-name">Etiqueta 100x140 (1 Coluna)</h3>
+                        <p class="team-role">Adesiva Couchê</p>
+                    </div>
+
+                    <!-- Bobina 57x40 Relógio de Ponto -->
+                    <div class="team-card store-card" data-category="bobina" style="cursor: pointer;"
+                        onclick="openProductModal('Bobina 57x40', 'bobina_57x40.png', 'Bobina térmica para relógio de ponto. Papel de alta qualidade com boa durabilidade.', 'R$ 38,00', 80)">
+                        <div class="team-photo">
+                            <img src="bobina_57x40.png" alt="Bobina 57x40" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 38,00</div>
+                        <h3 class="team-name">Bobina 57x40</h3>
+                        <p class="team-role">Relógio de Ponto</p>
+                    </div>
+
+
+                    <!-- Bobina 57x260 Relógio de Ponto -->
+                    <div class="team-card store-card" data-category="bobina" style="cursor: pointer;"
+                        onclick="openProductModal('Bobina 57x260', 'bobina_57x260.png', 'Bobina térmica grande para relógio de ponto. Alta metragem, ideal para alto volume.', 'R$ 65,00', 25)">
+                        <div class="team-photo">
+                            <img src="bobina_57x260.png" alt="Bobina 57x260" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 65,00</div>
+                        <h3 class="team-name">Bobina 57x260</h3>
+                        <p class="team-role">Relógio de Ponto</p>
+                    </div>
+
+                    <!-- Ribbon 110x75m Cera -->
+                    <div class="team-card store-card" data-category="ribbon" style="cursor: pointer;"
+                        onclick="openProductModal('Ribbon 110x75m Cera', 'ribbon_110x75_cera.png', 'Ribbon de cera com 75 metros. Excelente custo-benefício para etiquetas Couchê.', 'R$ 14,00', 250)">
+                        <div class="team-photo">
+                            <img src="ribbon_110x75_cera.png" alt="Ribbon 110x75m Cera" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 14,00</div>
+                        <h3 class="team-name">Ribbon 110x75m Cera</h3>
+                        <p class="team-role">Para Etiquetas Couchê</p>
+                    </div>
+
+                    <!-- Etiqueta 50x30 2 Colunas BOPP -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 50x30 (2 Colunas) BOPP', 'etiqueta_50x30_2col.png', 'Etiqueta adesiva BOPP 50mm x 30mm em 2 colunas. Resistente à água e umidade.', 'R$ 28,00', 90)">
+                        <div class="team-photo">
+                            <img src="etiqueta_50x30_2col.png" alt="Etiqueta 50x30 2 Colunas" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 28,00</div>
+                        <h3 class="team-name">Etiqueta 50x30 (2 Colunas)</h3>
+                        <p class="team-role">Adesiva BOPP</p>
+                    </div>
+
+                    <!-- Gôndola 70x30 Cartão Amarela -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Gôndola 70x30 Cartão Amarela', 'gondola_70x30_cartao.png', 'Etiqueta gôndola em papel cartão amarelo. Destaque suas ofertas e promoções.', 'R$ 26,00', 110)">
+                        <div class="team-photo">
+                            <img src="gondola_70x30_cartao.png" alt="Gôndola 70x30 Cartão" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 26,00</div>
+                        <h3 class="team-name">Gôndola 70x30 Cartão</h3>
+                        <p class="team-role">Amarela</p>
+                    </div>
+
+                    <!-- Gôndola 70x30 Couchê Amarela -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Gôndola 70x30 Couchê Amarela', 'gondola_70x30_couche.png', 'Etiqueta gôndola Couchê amarela. Impressão de alta qualidade para etiquetadoras.', 'R$ 29,00', 70)">
+                        <div class="team-photo">
+                            <img src="gondola_70x30_couche.png" alt="Gôndola 70x30 Couchê" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 29,00</div>
+                        <h3 class="team-name">Gôndola 70x30 Couchê</h3>
+                        <p class="team-role">Amarela</p>
+                    </div>
+
+                    <!-- Etiqueta 50x75 Cartão Destacável PIC 25mm -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 50x75 (2 Colunas) PIC 25mm', 'etiqueta_50x75_2col.png', 'Etiqueta cartão destacável 50x75mm em 2 colunas. Picote a 25mm do topo.', 'R$ 35,00', 55)">
+                        <div class="team-photo">
+                            <img src="etiqueta_50x75_2col.png" alt="Etiqueta 50x75 2 Colunas" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 35,00</div>
+                        <h3 class="team-name">Etiqueta 50x75 (2 Colunas)</h3>
+                        <p class="team-role">Cartão Destacável PIC 25mm</p>
+                    </div>
+
+                    <!-- Etiqueta 50x75 Cartão Destacável PIC Meio -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 50x75 (2 Colunas) PIC Meio', 'etiqueta_50x75_cartao.png', 'Etiqueta cartão destacável 50x75mm em 2 colunas. Picote no meio da etiqueta.', 'R$ 35,00', 50)">
+                        <div class="team-photo">
+                            <img src="etiqueta_50x75_cartao.png" alt="Etiqueta 50x75 Cartão" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 35,00</div>
+                        <h3 class="team-name">Etiqueta 50x75 (2 Colunas)</h3>
+                        <p class="team-role">Cartão Destacável PIC Meio</p>
+                    </div>
+
+                    <!-- Etiqueta 50x75 Adesiva Couchê -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 50x75 (2 Colunas) Adesiva', 'etiqueta_50x75_adesiva.png', 'Etiqueta adesiva Couchê 50x75mm em 2 colunas. Ótima aderência e qualidade.', 'R$ 30,00', 100)">
+                        <div class="team-photo">
+                            <img src="etiqueta_50x75_adesiva.png" alt="Etiqueta 50x75 Adesiva" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 30,00</div>
+                        <h3 class="team-name">Etiqueta 50x75 (2 Colunas)</h3>
+                        <p class="team-role">Adesiva Couchê</p>
+                    </div>
+
+                    <!-- Bobina Thega 79x40 Amarela -->
+                    <div class="team-card store-card" data-category="bobina" style="cursor: pointer;"
+                        onclick="openProductModal('Bobina Thega 79x40 Amarela', 'bobina_thega_79x40.png', 'Bobina térmica Thega 79x40mm amarela. Vendida por unidade.', 'R$ 8,00', 200)">
+                        <div class="team-photo">
+                            <img src="bobina_thega_79x40.png" alt="Bobina Thega 79x40" loading="lazy" decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 8,00</div>
+                        <h3 class="team-name">Bobina Thega 79x40</h3>
+                        <p class="team-role">Amarela - Unidade</p>
+                    </div>
+
+                    <!-- Gôndola 108x30 Cartão Amarela -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Gôndola 108x30 Cartão Amarela', 'gondola_108x30_cartao.png', 'Etiqueta gôndola extra larga 108x30mm em papel cartão amarelo.', 'R$ 32,00', 45)">
+                        <div class="team-photo">
+                            <img src="gondola_108x30_cartao.png" alt="Gôndola 108x30 Cartão" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 32,00</div>
+                        <h3 class="team-name">Gôndola 108x30 Cartão</h3>
+                        <p class="team-role">Amarela</p>
+                    </div>
+
+                    <!-- Etiqueta 50x75 Destacável Adesiva PIC Meio -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 50x75 Destacável Adesiva PIC Meio', 'etiqueta_50x75_destac.png', 'Etiqueta destacável adesiva 50x75mm em 2 colunas com picote no meio.', 'R$ 38,00', 40)">
+                        <div class="team-photo">
+                            <img src="etiqueta_50x75_destac.png" alt="Etiqueta 50x75 Destacável" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 38,00</div>
+                        <h3 class="team-name">Etiqueta 50x75 (2 Colunas)</h3>
+                        <p class="team-role">Destacável Adesiva PIC Meio</p>
+                    </div>
+
+                    <!-- Etiqueta 50x30 2 Colunas Adesiva Couchê -->
+                    <div class="team-card store-card" data-category="etiqueta" style="cursor: pointer;"
+                        onclick="openProductModal('Etiqueta 50x30 (2 Colunas) Adesiva', 'etiqueta_50x30_couche.png', 'Etiqueta adesiva Couchê 50x30mm em 2 colunas. Compacta e versátil.', 'R$ 24,00', 130)">
+                        <div class="team-photo">
+                            <img src="etiqueta_50x30_couche.png" alt="Etiqueta 50x30 Couchê" loading="lazy"
+                                decoding="async">
+                        </div>
+                        <div class="product-price"
+                            style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            R$ 24,00</div>
+                        <h3 class="team-name">Etiqueta 50x30 (2 Colunas)</h3>
+                        <p class="team-role">Adesiva Couchê</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal do Produto -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProductModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalProductImage" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalProductName" class="gradient-text"></h2>
+                    <div id="modalProductPrice" class="modal-price"></div>
+                    <p id="modalProductDescription" class="modal-description"></p>
+                    <a id="whatsappLink" href="" target="_blank" class="btn-cta"
+                        style="display: block; text-align: center;">
+                        <i class="fab fa-whatsapp"></i> Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+    <script>
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.store-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openProductModal(name, image, description, price, stock) {
+            const modal = document.getElementById('productModal');
+            document.getElementById('modalProductName').textContent = name;
+
+            // Handle image - use placeholder if no image provided
+            const imgElement = document.getElementById('modalProductImage');
+            if (image && image !== '') {
+                imgElement.src = image;
+                imgElement.style.display = 'block';
+                imgElement.parentElement.style.background = '#f8fafc';
+            } else {
+                imgElement.src = '';
+                imgElement.style.display = 'none';
+                imgElement.parentElement.innerHTML = '<i class="fas fa-tag" style="font-size: 6rem; color: #94a3b8;"></i>';
+                imgElement.parentElement.style.background = 'linear-gradient(135deg, #f1f5f9, #e2e8f0)';
+                imgElement.parentElement.style.display = 'flex';
+                imgElement.parentElement.style.alignItems = 'center';
+                imgElement.parentElement.style.justifyContent = 'center';
+                imgElement.parentElement.style.minHeight = '300px';
+            }
+
+            document.getElementById('modalProductDescription').textContent = description;
+            document.getElementById('modalProductPrice').textContent = price;
+
+            const whatsappMessage = encodeURIComponent('Olá! Gostaria de um orçamento para o produto: ' + name);
+            document.getElementById('whatsappLink').href = 'https://wa.me/551238333927?text=' + whatsappMessage;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+
+            // Reset the modal image container
+            const imgContainer = document.querySelector('.modal-image');
+            imgContainer.innerHTML = '<img id="modalProductImage" src="" alt="">';
+        }
+
+        // Fechar modal ao clicar fora
+        window.onclick = function (event) {
+            const modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                closeProductModal();
+            }
+        }
+    </script>
+</body>
+
+</html>

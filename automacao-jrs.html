@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRS Sistemas - Automação Comercial | Leantech</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .detail-hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('hero_pc_setup.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid #e2e8f0;
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-glow);
+            color: var(--primary);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .segment-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #f1f5f9;
+            color: #475569;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container-fluid nav">
+            <a href="index.html#home" style="display: block;"><img src="logo.png" alt="Leantech Automação Comercial"
+                    class="logo-img"></a>
+            <ul class="nav-links">
+
+                <li class="dropdown">
+                    <a href="index.html#produtos">Produtos <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="produtos-informatica.html">Computadores & Peças</a></li>
+                        <li><a href="produtos-suprimentos.html">Insumos & Suprimentos</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#automacao">Automação</a></li>
+                <li><a href="certificado-digital.html">Certificado Digital</a></li>
+
+                <li><a href="index.html#equipe">Equipe</a></li>
+                <li><a href="index.html#localizacao">Localização</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+                <li>
+                    <a href="carrinho.html" class="nav-cart">
+                        Meu Carrinho
+                        <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero detail-hero reveal active">
+            <div class="container">
+                <div class="hero-content" style="max-width: 800px;">
+                    <nav style="margin-bottom: 2rem;">
+                        <a href="index.html#automacao"
+                            style="color: var(--primary); text-decoration: none; font-weight: 600;">
+                            <i class="fas fa-arrow-left"></i> Voltar para Automação
+                        </a>
+                    </nav>
+                    <img src="logo_jrs_new.png" alt="JRS Sistemas"
+                        style="height: 80px; margin-bottom: 2rem; mix-blend-mode: multiply;">
+                    <h1>Sistemas Integrados <br><span class="gradient-text">Para sua Empresa Crescer</span></h1>
+                    <p>Com mais de 33 anos de história, a JRS Sistemas (JRS Computação) é referência no desenvolvimento
+                        de softwares que aliam robustez técnica e facilidade de operação. Uma solução completa que
+                        atende desde o pequeno varejo até indústrias de grande porte.</p>
+                    <div style="display: flex; gap: 1.5rem; margin-top: 2rem;">
+                        <a href="https://wa.me/551238333927" target="_blank" rel="noopener noreferrer"
+                            class="btn-cta">Solicitar Demonstração</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 6rem 0; background: #f8fafc;">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="gradient-text">Soluções Completas de ERP</h2>
+                    <p>O sistema JRS centraliza todos os processos da sua empresa em uma única plataforma.</p>
+                </div>
+
+                <div class="services-grid" style="margin-top: 4rem;">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-cash-register"></i></div>
+                        <h3>Frente de Caixa (PDV)</h3>
+                        <p>Vendas ágeis com suporte a TEF, emissão de NF-e, NFC-e e SAT. Integração direta com CRM Bônus
+                            para fidelização de clientes.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-boxes"></i></div>
+                        <h3>Gestão de Estoque</h3>
+                        <p>Controle preciso de entradas e saídas, inventários, cotação de preços com fornecedores e
+                            entrada automática via XML.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h3>Financeiro Integrado</h3>
+                        <p>Contas a pagar e receber, fluxo de caixa em tempo real, gestão de títulos e relatórios
+                            financeiros detalhados para tomada de decisão.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-store"></i></div>
+                        <h3>Omnichannel & Digital</h3>
+                        <p>Integração com Marketplaces (mais de 50 lojas), catálogo digital JRS Vitrine e ferramentas de
+                            autoatendimento.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h3>E-commerce Integrado</h3>
+                        <p>Venda online com estoque sincronizado em tempo real. Integração com Marketplaces e catálogo
+                            digital próprio para expandir seu alcance.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-hdd"></i></div>
+                        <h3>JRS Backup</h3>
+                        <p>Segurança total para seus dados com backups automatizados e redundantes, garantindo que suas
+                            informações estejam sempre protegidas e disponíveis.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+                        <h3>Certificado Digital</h3>
+                        <p>Gestão e integração completa para emissão de documentos fiscais com suporte total aos
+                            principais certificados do mercado.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                        <h3>Consultoria em IA</h3>
+                        <p>Uso de Inteligência Artificial para análise de dados e otimização de processos decisórios no
+                            seu negócio.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Apps de Apoio</h3>
+                        <p>Aplicativos de conferência de mercadorias, catálogo para vendedores externos e dashboards de
+                            indicadores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 6rem 0; background: white;">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                    <div>
+                        <h2 class="gradient-text" style="font-size: 2.5rem; margin-bottom: 2rem;">Segmentos que
+                            Atendemos</h2>
+                        <p style="margin-bottom: 2rem;">A flexibilidade do sistema JRS permite configurações específicas
+                            para diversos ramos de atividade, garantindo que o software se molde ao seu negócio, e não o
+                            contrário.</p>
+                        <div style="display: flex; flex-wrap: wrap;">
+                            <span class="segment-tag">Supermercados</span>
+                            <span class="segment-tag">Padarias & Empórios</span>
+                            <span class="segment-tag">Vestuário & Calçados</span>
+                            <span class="segment-tag">Papelarias</span>
+                            <span class="segment-tag">Autopeças & Mecânicas</span>
+                            <span class="segment-tag">Óticas</span>
+                            <span class="segment-tag">Material de Construção</span>
+                            <span class="segment-tag">Madeireiras</span>
+                            <span class="segment-tag">Garden & Floriculturas</span>
+                            <span class="segment-tag">Agropecuárias</span>
+                        </div>
+                    </div>
+                    <div
+                        style="background: white; padding: 4rem; border-radius: 2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+                        <img src="logo_jrs_new.png" alt="Logo JRS"
+                            style="width: 100%; max-width: 400px; height: auto; mix-blend-mode: multiply;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 8rem 0; background: var(--bg-card); text-align: center;">
+            <div class="container">
+                <div class="glass-panel" style="max-width: 900px; margin: 0 auto; padding: 4rem;">
+                    <h2 class="gradient-text" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Pronto para transformar
+                        sua gestão?</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 3rem;">Agende uma demonstração gratuita e veja como a
+                        JRS Sistemas pode otimizar seu dia a dia.</p>
+                    <a href="https://wa.me/551238333927" target="_blank" rel="noopener noreferrer" class="btn-cta"
+                        style="padding: 1.2rem 3rem; font-size: 1.1rem;">Falar com Especialista JRS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: #eaebef; padding: 4rem 0 2rem;">
+        <div class="container">
+            <div class="footer-bottom">
+                &copy; 2024 Leantech Soluções em TI. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

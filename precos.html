@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Preços - Leantech</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pricing-section {
+            padding: 10rem 0 8rem;
+            background: #f8fafc;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .price-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            transition: 0s !important;
+            transition-delay: 0s !important;
+            box-shadow: 0 30px 60px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary);
+        }
+
+        .price-card h3 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .price-card h3 i {
+            color: var(--primary);
+        }
+
+        .price-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-item span {
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .price-item strong {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .price-card .btn-cta {
+            margin-top: 2.5rem;
+            text-align: center;
+            width: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-section {
+                padding: 8rem 0 4rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container-fluid nav">
+            <a href="index.html#home" style="display: block;"><img src="logo.png" alt="Leantech Automação Comercial"
+                    class="logo-img"></a>
+            <ul class="nav-links">
+
+                <li class="dropdown">
+                    <a href="index.html#produtos">Produtos <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="produtos-informatica.html">Computadores & Peças</a></li>
+                        <li><a href="produtos-suprimentos.html">Insumos & Suprimentos</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#automacao">Automação</a></li>
+                <li><a href="certificado-digital.html">Certificado Digital</a></li>
+
+                <li><a href="index.html#equipe">Equipe</a></li>
+                <li><a href="index.html#localizacao">Localização</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+                <li>
+                    <a href="carrinho.html" class="nav-cart">
+                        Meu Carrinho
+                        <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="pricing-section">
+            <div class="container">
+                <div class="section-title" style="text-align: left;">
+                    <h2 class="gradient-text">Tabela de Preços</h2>
+                    <p>Confira nossos valores para serviços técnicos e soluções digitais.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Assistência Técnica -->
+                    <div class="price-card">
+                        <h3><i class="fas fa-tools"></i> Assistência Técnica</h3>
+                        <div class="price-list">
+                            <div class="price-item"><span>Formatação Completa</span><strong>R$ 100,00</strong></div>
+                            <div class="price-item"><span>Limpeza e Pasta Térmica</span><strong>R$ 150,00</strong></div>
+                            <div class="price-item"><span>Manutenção de Impressora</span><strong>R$ 120,00</strong>
+                            </div>
+                            <div class="price-item"><span>Suporte Remoto</span><strong>R$ 80,00</strong></div>
+                            <div class="price-item"><span>Visita Técnica Próxima</span><strong>R$ 150,00</strong></div>
+                            <div class="price-item"><span>Troca de Peças</span><strong>Sob Consulta</strong></div>
+                        </div>
+                        <a href="https://wa.me/551238333927" class="btn-cta">Solicitar Serviço</a>
+                    </div>
+
+                    <!-- Soluções Digitais -->
+                    <div class="price-card">
+                        <h3><i class="fas fa-robot"></i> Soluções Digitais</h3>
+                        <div class="price-list">
+                            <div class="price-item"><span>Configuração Chatbot</span><strong>R$ 300,00</strong></div>
+                            <div class="price-item"><span>Mensalidade Chatbot</span><strong>R$ 150,00</strong></div>
+                            <div class="price-item"><span>Backup 100GB (Mensal)</span><strong>R$ 50,00</strong></div>
+                            <div class="price-item"><span>Backup 500GB (Mensal)</span><strong>R$ 120,00</strong></div>
+                            <div class="price-item"><span>Certificado Digital e-CPF</span><strong>R$ 180,00</strong>
+                            </div>
+                            <div class="price-item"><span>Certificado Digital e-CNPJ</span><strong>Sob Consulta</strong>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/551238333927" class="btn-cta">Saber Mais</a>
+                    </div>
+
+                    <!-- Infraestrutura -->
+                    <div class="price-card">
+                        <h3><i class="fas fa-network-wired"></i> Infraestrutura</h3>
+                        <div class="price-list">
+                            <div class="price-item"><span>Passagem de Cabo (Ponto)</span><strong>R$ 80,00</strong></div>
+                            <div class="price-item"><span>Configuração de Wi-Fi</span><strong>R$ 120,00</strong></div>
+                            <div class="price-item"><span>Instalação de Câmera (un)</span><strong>R$ 150,00</strong>
+                            </div>
+                            <div class="price-item"><span>Configuração de DVR/NVR</span><strong>R$ 200,00</strong></div>
+                            <div class="price-item"><span>Organização de Rack</span><strong>Sob Consulta</strong></div>
+                        </div>
+                        <a href="https://wa.me/551238333927" class="btn-cta">Pedir Orçamento</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: #eaebef; padding: 4rem 0 2rem;">
+        <div class="container text-center">
+            <p>&copy; 2024 Leantech Soluções em TI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

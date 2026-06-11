@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços Prontos - Leantech</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container-fluid nav">
+            <a href="index.html#home" style="display: block;"><img src="logo.png" alt="Leantech Automação Comercial"
+                    class="logo-img"></a>
+            <ul class="nav-links">
+
+                <li class="dropdown">
+                    <a href="index.html#produtos">Produtos <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="produtos-informatica.html">Computadores & Peças</a></li>
+                        <li><a href="produtos-suprimentos.html">Insumos & Suprimentos</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#automacao">Automação</a></li>
+                <li><a href="certificado-digital.html">Certificado Digital</a></li>
+
+                <li><a href="index.html#equipe">Equipe</a></li>
+                <li><a href="index.html#localizacao">Localização</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+                <li>
+                    <a href="carrinho.html" class="nav-cart">
+                        Meu Carrinho
+                        <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero detail-hero active">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Serviços <br><span class="gradient-text">Prontos</span></h1>
+                    <p>Soluções imediatas e pacotes de serviços pré-definidos para sua comodidade e agilidade.</p>
+                </div>
+            </div>
+            <div class="hero-bg">
+            </div>
+        </section>
+
+        <style>
+            .comparison-section {
+                padding: 4rem 2rem;
+                background: #f8fafc;
+                border-radius: 2rem;
+                margin-top: 2rem;
+            }
+
+            .select-wrapper {
+                max-width: 500px;
+                margin: 2rem auto 3rem;
+                position: relative;
+            }
+
+            .service-select {
+                width: 100%;
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
+                border: 2px solid #e2e8f0;
+                border-radius: 1rem;
+                background: white;
+                color: var(--text-main);
+                cursor: pointer;
+                appearance: none;
+                transition: var(--transition);
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 600;
+            }
+
+            .service-select:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            }
+
+            .select-wrapper::after {
+                content: '\f078';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                position: absolute;
+                right: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                pointer-events: none;
+                color: var(--primary);
+            }
+
+            .comparison-container {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .images-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .comparison-media {
+                position: relative;
+                border-radius: 1.5rem;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                aspect-ratio: 16/9;
+                background: #eee;
+                transition: var(--transition);
+            }
+
+            .comparison-media:hover {
+                transform: translateY(-15px) scale(1.03);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            }
+
+            .media-label {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1.2rem;
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                font-size: 0.9rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                border-radius: 0.5rem;
+                z-index: 2;
+                backdrop-filter: blur(4px);
+            }
+
+            .label-before {
+                border-left: 4px solid #ef4444;
+            }
+
+            .label-after {
+                border-left: 4px solid #22c55e;
+            }
+
+            .comparison-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: 0s;
+            }
+
+            .comparison-media:hover .comparison-img {
+                transform: scale(1.05);
+            }
+
+            .nav-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 45px;
+                height: 45px;
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 10;
+                transition: var(--transition);
+                backdrop-filter: blur(4px);
+                font-size: 1.2rem;
+            }
+
+            .nav-arrow:hover {
+                background: var(--primary);
+                transform: translateY(-50%) scale(1.1);
+            }
+
+            .arrow-prev {
+                left: 1rem;
+            }
+
+            .arrow-next {
+                right: 1rem;
+            }
+
+            .info-row {
+                text-align: left;
+                padding: 0 1rem;
+            }
+
+            .info-row h3 {
+                font-size: 2.5rem;
+                font-weight: 800;
+                margin-bottom: 0.5rem;
+            }
+
+            .service-price {
+                font-size: 2.5rem;
+                font-weight: 800;
+                color: var(--primary);
+                margin: 0.5rem 0 1.5rem;
+            }
+
+            .service-description {
+                font-size: 1.3rem;
+                line-height: 1.8;
+                color: var(--text-muted);
+                max-width: 900px;
+            }
+
+            @media (max-width: 768px) {
+                .images-row {
+                    grid-template-columns: 1fr;
+                }
+
+                .info-row h3,
+                .service-price {
+                    font-size: 2rem;
+                }
+            }
+        </style>
+
+        <section class="detail-content active" style="padding: 5rem 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="gradient-text">Galeria de Resultados</h2>
+                    <p>Selecione um serviço para ver a transformação e o investimento necessário.</p>
+                </div>
+
+                <div class="select-wrapper">
+                    <select id="serviceSelector" class="service-select" onchange="updateServiceView()">
+                        <option value="limpeza" selected>Limpeza Preventiva</option>
+                        <option value="cameras">Instalação de Câmeras</option>
+                        <option value="cabos">Passagem de Cabos</option>
+                    </select>
+                </div>
+
+                <div class="comparison-section glass-panel">
+                    <div class="comparison-container">
+                        <!-- Imagens Row -->
+                        <div id="comparisonImagesRow" class="images-row">
+                            <div class="comparison-media">
+                                <span class="media-label label-before">Antes</span>
+                                <button class="nav-arrow arrow-prev" onclick="changeImage('before', -1)"
+                                    aria-label="Anterior">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="nav-arrow arrow-next" onclick="changeImage('before', 1)"
+                                    aria-label="Próximo">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                                <img id="imgBefore" src="gaming_motherboard_1767373817260.png" alt="Antes"
+                                    class="comparison-img">
+                            </div>
+                            <div class="comparison-media">
+                                <span class="media-label label-after">Depois</span>
+                                <button class="nav-arrow arrow-prev" onclick="changeImage('after', -1)"
+                                    aria-label="Anterior">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="nav-arrow arrow-next" onclick="changeImage('after', 1)"
+                                    aria-label="Próximo">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                                <img id="imgAfter" src="gaming_motherboard_1767373817260.png" alt="Depois"
+                                    class="comparison-img">
+                            </div>
+                        </div>
+
+                        <!-- Informações Row -->
+                        <div class="info-row">
+                            <h3 id="serviceTitle">Reparo de PCs</h3>
+                            <div id="servicePrice" class="service-price">A partir de R$ 100,00</div>
+                            <p id="serviceDesc" class="service-description">
+                                Reparo de hardware, troca de componentes e diagnóstico avançado para
+                                computadores e
+                                notebooks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+
+    <footer style="background: #eaebef; padding: 4rem 0 2rem;">
+        <div class="container text-center">
+            <p>&copy; 2024 Leantech Soluções em TI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const services = {
+            limpeza: {
+                title: "Limpeza Preventiva",
+                price: "A partir de R$ 150,00",
+                desc: "Limpeza técnica interna profunda, troca da pasta térmica por condutores de alta performance e higienização geral.",
+                before: [
+                    "assets/limpeza_antes_1.jpg",
+                    "assets/limpeza_antes_2.jpg",
+                    "assets/limpeza_antes_3.jpg"
+                ],
+                after: [
+                    "assets/limpeza_depois_1.jpg",
+                    "assets/limpeza_depois_2.jpg",
+                    "assets/limpeza_depois_3.jpg"
+                ],
+                beforeIndex: 0,
+                afterIndex: 0,
+                hasComparison: true
+            },
+            cameras: {
+                title: "Instalação de Câmeras",
+                price: "A partir de R$ 350,00",
+                desc: "Configuração de sistemas CFTV, câmeras IP de alta resolução e configuração de monitoramento remoto via app.",
+                hasComparison: false
+            },
+            cabos: {
+                title: "Passagem de Cabos",
+                price: "A partir de R$ 250,00",
+                desc: "Estruturação de redes, passagem de cabos CAT6, organização de racks e instalação de pontos de rede.",
+                hasComparison: false
+            }
+        };
+
+        function updateServiceView() {
+            const selector = document.getElementById('serviceSelector');
+            const data = services[selector.value];
+
+            document.getElementById('serviceTitle').innerText = data.title;
+            document.getElementById('servicePrice').innerText = data.price;
+            document.getElementById('serviceDesc').innerText = data.desc;
+
+            const imagesRow = document.getElementById('comparisonImagesRow');
+            if (data.hasComparison) {
+                imagesRow.style.display = 'grid';
+
+                const bIdx = data.beforeIndex || 0;
+                const aIdx = data.afterIndex || 0;
+
+                document.getElementById('imgBefore').src = data.before[bIdx];
+                document.getElementById('imgAfter').src = data.after[aIdx];
+            } else {
+                imagesRow.style.display = 'none';
+            }
+        }
+
+        function changeImage(side, delta) {
+            const selector = document.getElementById('serviceSelector');
+            const service = services[selector.value];
+            if (!service.hasComparison) return;
+
+            if (side === 'before') {
+                service.beforeIndex = (service.beforeIndex + delta + service.before.length) % service.before.length;
+            } else {
+                service.afterIndex = (service.afterIndex + delta + service.after.length) % service.after.length;
+            }
+            updateServiceView();
+        }
+
+        // Initialize with the first service
+        window.onload = updateServiceView;
+    </script>
+</body>
+
+</html>
