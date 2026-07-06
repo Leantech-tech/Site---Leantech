@@ -1,0 +1,6 @@
+# Configuração do Nixpacks para servir site estático com nginx
+[phases.setup]
+aptPkgs = ["nginx"]
+
+[start]
+cmd = "nginx -c /app/nginx.conf -g 'daemon off;'"
