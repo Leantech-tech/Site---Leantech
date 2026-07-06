@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+
+# Arquivos compactados
+site.zip
+*.zip
+*.tar.gz
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Ambiente e configurações locais
+.env
+.env.local
+
+# Editor/IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependências (caso existam futuramente)
+node_modules
