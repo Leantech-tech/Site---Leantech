@@ -4,6 +4,9 @@ FROM nginx:alpine
 # Remove a página padrão do nginx
 RUN rm -rf /usr/share/nginx/html/*
 
+# Copia a configuração customizada do nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copia todos os arquivos do site para o diretório do nginx
 COPY . /usr/share/nginx/html
 
