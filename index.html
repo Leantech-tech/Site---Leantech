@@ -6,10 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leantech - Especialistas em TI e Automação Comercial</title>
     <meta name="description"
-        content="Conserto de computadores, impressoras e venda de equipamentos de TI e automação comercial com tecnologia de ponta.">
+        content="Conserto de computadores, impressoras e venda de equipamentos de TI e automação comercial com tecnologia de ponta em Ubatuba - SP.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://leantechautomacao.com.br/">
+    <meta property="og:title" content="Leantech - Especialistas em TI e Automação Comercial">
+    <meta property="og:description"
+        content="Conserto de computadores, impressoras e venda de equipamentos de TI e automação comercial com tecnologia de ponta em Ubatuba - SP.">
+    <meta property="og:image" content="https://leantechautomacao.com.br/logo.png">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://leantechautomacao.com.br/">
+    <meta property="twitter:title" content="Leantech - Especialistas em TI e Automação Comercial">
+    <meta property="twitter:description"
+        content="Conserto de computadores, impressoras e venda de equipamentos de TI e automação comercial com tecnologia de ponta em Ubatuba - SP.">
+    <meta property="twitter:image" content="https://leantechautomacao.com.br/logo.png">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Leantech Automação Comercial",
+        "image": "https://leantechautomacao.com.br/logo.png",
+        "url": "https://leantechautomacao.com.br/",
+        "telephone": "+55 12 3833-3927",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "R. Batista de Oliveira, 358 - Silop",
+            "addressLocality": "Ubatuba",
+            "addressRegion": "SP",
+            "postalCode": "11690-600",
+            "addressCountry": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -23.433551,
+            "longitude": -45.074426
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "17:00"
+            }
+        ],
+        "priceRange": "$$"
+    }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +81,7 @@
         <div class="container-fluid nav">
             <a href="#home" style="display: block;"><img src="logo.png" alt="Leantech Automação Comercial"
                     class="logo-img"></a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="main-navigation" role="menubar">
 
                 <li class="dropdown">
                     <a href="#produtos">Produtos <i class="fas fa-chevron-down"></i></a>
@@ -61,11 +112,19 @@
         <section id="home" class="hero-slideshow">
             <div class="slideshow-container">
                 <div class="slide active">
-                    <img src="hero_slide_clean_1.png" alt="PC Gamer Expert Leantech">
+                    <picture>
+                        <source srcset="hero_slide_clean_1.webp" type="image/webp">
+                        <source srcset="hero_slide_clean_1.jpg" type="image/jpeg">
+                        <img src="hero_slide_clean_1.png" alt="PC Gamer Expert Leantech" width="1920" height="1024">
+                    </picture>
                 </div>
 
                 <div class="slide">
-                    <img src="hero_slide_clean_2.png" alt="Infraestrutura de TI Leantech">
+                    <picture>
+                        <source srcset="hero_slide_clean_2.webp" type="image/webp">
+                        <source srcset="hero_slide_clean_2.jpg" type="image/jpeg">
+                        <img src="hero_slide_clean_2.png" alt="Infraestrutura de TI Leantech" width="1920" height="1024">
+                    </picture>
                 </div>
             </div>
 
@@ -87,6 +146,17 @@
                                 <span>Parceria oficial com <strong>JRS Sistemas</strong> e
                                     <strong>Saurus</strong></span>
                             </div>
+                        </div>
+
+                        <div class="hero-cta-group">
+                            <a href="https://wa.me/551238333927?text=Olá!%20Gostaria%20de%20um%20orçamento."
+                                target="_blank" rel="noopener noreferrer" class="btn-cta">
+                                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                            </a>
+                            <a href="https://wa.me/551238333927?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
+                                target="_blank" rel="noopener noreferrer" class="btn-cta btn-outline">
+                                <i class="fas fa-file-invoice-dollar"></i> Solicitar Orçamento
+                            </a>
                         </div>
 
                     </div>
@@ -142,66 +212,50 @@
                     <div class="service-card glass-panel">
                         <i class="fas fa-microchip"></i>
                         <h3>Reparo de PCs</h3>
-                        <p>Consertos avançados em placas-mãe, upgrades de memória e processamento para alta performance.
-                        </p>
+                        <p>Consertos avançados em placas-mãe, upgrades de memória e processamento para alta performance.</p>
                     </div>
                     <div class="service-card glass-panel">
                         <i class="fas fa-print"></i>
                         <h3>Manutenção de Impressoras</h3>
-                        <p>Especialistas em impressoras térmicas, laser e jato de tinta. Calibração e troca de
-                            componentes.</p>
+                        <p>Especialistas em impressoras térmicas, laser e jato de tinta. Calibração e troca de componentes.</p>
                     </div>
 
                     <div class="service-card glass-panel">
                         <i class="fas fa-wind"></i>
                         <h3>Limpeza Preventiva</h3>
-                        <p>Remoção técnica de resíduos, troca de pasta térmica e otimização do fluxo de ar do seu
-                            equipamento.</p>
+                        <p>Remoção técnica de resíduos, troca de pasta térmica e otimização do fluxo de ar do seu equipamento.</p>
                     </div>
 
-                    <!-- New Digital Services -->
                     <div class="service-card glass-panel">
                         <i class="fas fa-robot"></i>
                         <h3>Automação com IA</h3>
-                        <p>Automatize WhatsApp, Instagram e Telegram com Inteligência Artificial. Atendimento
-                            escalável
-                            e eficiente.</p>
+                        <p>Automatize WhatsApp, Instagram e Telegram com Inteligência Artificial. Atendimento escalável e eficiente.</p>
                     </div>
                     <div class="service-card glass-panel">
                         <i class="fas fa-mobile-alt"></i>
                         <h3>Apps & Sistemas</h3>
-                        <p>Desenvolvimento de aplicativos exclusivos e venda de sistemas de gestão completos para
-                            impulsionar seu negócio.</p>
+                        <p>Desenvolvimento de aplicativos exclusivos e venda de sistemas de gestão completos para impulsionar seu negócio.</p>
                     </div>
                     <div class="service-card glass-panel">
                         <i class="fas fa-headset"></i>
                         <h3>Suporte Remoto</h3>
-                        <p>Resolução rápida de problemas de software e configuração sem sair de casa. Atendimento
-                            ágil
-                            via acesso remoto seguro.</p>
+                        <p>Resolução rápida de problemas de software e configuração sem sair de casa. Atendimento ágil via acesso remoto seguro.</p>
                     </div>
                     <div class="service-card glass-panel">
                         <i class="fas fa-file-signature"></i>
                         <h3>Certificado Digital</h3>
-                        <p>Emissão e renovação de e-CPF e e-CNPJ. Segurança jurídica e agilidade para suas
-                            transações
-                            eletrônicas.</p>
+                        <p>Emissão e renovação de e-CPF e e-CNPJ. Segurança jurídica e agilidade para suas transações eletrônicas.</p>
                     </div>
 
-                    <!-- Infrastructure Services -->
                     <div class="service-card glass-panel">
                         <i class="fas fa-video"></i>
                         <h3>Instalação de Câmeras</h3>
-                        <p>Sistemas de monitoramento e segurança com câmeras de alta definição. Instalação
-                            profissional
-                            e configuração completa.</p>
+                        <p>Sistemas de monitoramento e segurança com câmeras de alta definição. Instalação profissional e configuração completa.</p>
                     </div>
                     <div class="service-card glass-panel">
                         <i class="fas fa-ethernet"></i>
                         <h3>Passagem de Cabos</h3>
-                        <p>Infraestrutura de rede com cabeamento estruturado. Organização e instalação de cabos de
-                            rede
-                            e elétricos.</p>
+                        <p>Infraestrutura de rede com cabeamento estruturado. Organização e instalação de cabos de rede e elétricos.</p>
                     </div>
                     <div class="service-card glass-panel" style="border: 2px solid var(--primary);">
                         <i class="fas fa-cloud-upload-alt"></i>
@@ -212,10 +266,8 @@
                             CONFIRA
                         </a>
                         <h3>Backup na Nuvem</h3>
-                        <p>Proteção total para seus dados com backup automático na nuvem. Seus arquivos seguros e
-                            acessíveis de qualquer lugar.</p>
+                        <p>Proteção total para seus dados com backup automático na nuvem. Seus arquivos seguros e acessíveis de qualquer lugar.</p>
                     </div>
-                    <!-- Subscription & Remote Services -->
                     <div class="service-card glass-panel" style="border: 2px solid var(--primary);">
                         <i class="fas fa-calendar-alt"></i>
                         <a href="preco-assistencia.html" class="badge"
@@ -225,11 +277,8 @@
                             CONFIRA
                         </a>
                         <h3>Assistência Mensal</h3>
-                        <p>Planos de manutenção recorrente para sua empresa. Tranquilidade total com suporte
-                            prioritário
-                            e visitas programadas.</p>
+                        <p>Planos de manutenção recorrente para sua empresa. Tranquilidade total com suporte prioritário e visitas programadas.</p>
                     </div>
-
                     <div class="service-card glass-panel" style="border: 2px solid var(--primary);">
                         <i class="fas fa-comments-dollar"></i>
                         <a href="preco-chatbot.html" class="badge"
@@ -239,8 +288,7 @@
                             CONFIRA
                         </a>
                         <h3>Chatbot de Vendas</h3>
-                        <p>Assistente virtual inteligente que conversa com seu cliente, tira dúvidas e auxilia no
-                            fechamento de vendas.</p>
+                        <p>Assistente virtual inteligente que conversa com seu cliente, tira dúvidas e auxilia no fechamento de vendas.</p>
                     </div>
 
                 </div> <!-- services-grid closes here -->
@@ -515,40 +563,40 @@
                         <p class="team-role">Técnico de Informática</p>
                     </div>
 
-                    <!-- Funcionário 5 - Jamile -->
+                    <!-- Funcionário 5 - Giovanni -->
                     <div class="team-card">
-                        <h3 class="team-name">Jâmile</h3>
-                        <p class="team-role">Suporte sistema Saurus</p>
+                        <h3 class="team-name">Giovanni</h3>
+                        <p class="team-role">Técnico de Informática</p>
                     </div>
 
-                    <!-- Funcionário 6 - Rayssa -->
-                    <div class="team-card">
-                        <h3 class="team-name">Rayssa</h3>
-                        <p class="team-role">Suporte sistema Saurus</p>
-                    </div>
-
-                    <!-- Funcionário 7 - Anna Julia -->
+                    <!-- Funcionário 6 - Anna Julia -->
                     <div class="team-card">
                         <h3 class="team-name">Anna Júlia</h3>
                         <p class="team-role">Suporte sistema JRS</p>
                     </div>
 
-                    <!-- Funcionário 8 - Fernanda -->
+                    <!-- Funcionário 7 - Fernanda -->
                     <div class="team-card">
                         <h3 class="team-name">Fernanda</h3>
                         <p class="team-role">Suporte sistema JRS</p>
                     </div>
 
-                    <!-- Funcionário 9 - Felipe -->
+                    <!-- Funcionário 8 - Jamile -->
+                    <div class="team-card">
+                        <h3 class="team-name">Jâmile</h3>
+                        <p class="team-role">Suporte sistema Saurus</p>
+                    </div>
+
+                    <!-- Funcionário 9 - Rayssa -->
+                    <div class="team-card">
+                        <h3 class="team-name">Rayssa</h3>
+                        <p class="team-role">Suporte sistema Saurus</p>
+                    </div>
+
+                    <!-- Funcionário 10 - Felipe -->
                     <div class="team-card">
                         <h3 class="team-name">Felipe</h3>
                         <p class="team-role">Desenvolvedor</p>
-                    </div>
-
-                    <!-- Funcionário 10 - Geovane -->
-                    <div class="team-card">
-                        <h3 class="team-name">Geovane</h3>
-                        <p class="team-role">Técnico de Informática</p>
                     </div>
 
                     <!-- Funcionário 11 - Pedro -->
@@ -567,9 +615,9 @@
                     <!-- Light Map -->
                     <div class="map-container-light">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14626.981845112003!2d-45.074426!3d-23.433551!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cd5397e51c6c01%3A0x633d7b43a9fcdcb!2sLeantech%20Automa%C3%A7%C3%A3o%20Comercial!5e0!3m2!1spt-BR!2sbr!4v1703875317000!5m2!1spt-BR!2sbr"
+                            data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14626.981845112003!2d-45.074426!3d-23.433551!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cd5397e51c6c01%3A0x633d7b43a9fcdcb!2sLeantech%20Automa%C3%A7%C3%A3o%20Comercial!5e0!3m2!1spt-BR!2sbr!4v1703875317000!5m2!1spt-BR!2sbr"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+                            referrerpolicy="no-referrer-when-downgrade" title="Localização Leantech no Google Maps">
                         </iframe>
                     </div>
 
@@ -590,7 +638,7 @@
                             <i class="fas fa-compass"></i>
                             <div class="info-text">
                                 <a href="https://www.google.com/maps/dir//Leantech+Automa%C3%A7%C3%A3o+Comercial/"
-                                    target="_blank" class="routes-link">
+                                    target="_blank" rel="noopener noreferrer" class="routes-link">
                                     Rotas
                                     <div class="routes-icon">
                                         <img src="https://www.gstatic.com/images/branding/product/1x/maps_64dp.png"
@@ -614,7 +662,7 @@
                             <i class="fas fa-clock"></i>
                             <div class="info-text">
                                 <div class="status-badge">
-                                    <span class="badge-time">Fecha às 17h</span>
+                                    <span class="badge-time">Segunda a Sexta, 9h às 17h</span>
                                 </div>
                             </div>
                         </div>
@@ -626,10 +674,11 @@
 
     <footer style="background: #eaebef; padding: 4rem 0 2rem;">
         <div class="container">
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem; width: 100%;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 2.5rem; width: 100%;">
+                <!-- Parceiros -->
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 1.2rem; width: 100%;">
                     <div
-                        style="color: #1e293b; font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0;">
+                        style="color: #1e293b; font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em;">
                         Nossos parceiros
                     </div>
                     <div class="products-layout"
@@ -675,24 +724,30 @@
                                 style="height: 40px; width: auto; mix-blend-mode: multiply;" loading="lazy"
                                 decoding="async">
                         </div>
-                        <div class="legal-links">
-                            <a href="politica-de-privacidade.html" class="legal-btn">Política de Privacidade</a>
-                            <a href="termos-de-uso.html" class="legal-btn">Termos de Uso</a>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 2rem; justify-content: center;">
-                        <a href="https://www.instagram.com/leantechautomacao" target="_blank"
-                            style="color: #1e293b; font-size: 1.5rem; display: flex; align-items: center;"><img
-                                src="icon_instagram.png" alt="Instagram"
-                                style="height: 2rem; width: auto; mix-blend-mode: multiply;"></a>
-                        <a href="#" style="color: #1e293b; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" style="color: #1e293b; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
+
+                <!-- Redes Sociais -->
+                <div style="display: flex; gap: 2rem; justify-content: center; align-items: center;">
+                    <a href="https://www.instagram.com/leantech_automacao/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram Leantech"
+                        style="color: #1e293b; font-size: 1.5rem; display: flex; align-items: center;">
+                        <img src="icon_instagram.png" alt="Instagram"
+                            style="height: 2rem; width: auto; mix-blend-mode: multiply;">
+                    </a>
+                </div>
+
+                <!-- Links Legais -->
+                <div class="legal-links">
+                    <a href="politica-de-privacidade.html" class="legal-btn">Política de Privacidade</a>
+                    <a href="termos-de-uso.html" class="legal-btn">Termos de Uso</a>
+                </div>
+
                 <div class="footer-bottom">
                     &copy; 2024 Leantech Soluções em TI. Todos os direitos reservados.
                 </div>
             </div>
+        </div>
     </footer>
 
 

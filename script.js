@@ -60,20 +60,42 @@ window.addEventListener('scroll', () => {
 
 // Mobile Menu Toggle
 function initMobileMenu() {
-    const headerNav = document.querySelector('.container.nav');
+    const headerNav = document.querySelector('.container-fluid.nav') || document.querySelector('#header .nav');
     const navLinks = document.querySelector('.nav-links');
+    if (!headerNav || !navLinks) return;
 
     // Create Hamburger Menu if not exists
     if (!document.querySelector('.mobile-menu-btn')) {
-        const btn = document.createElement('div');
+        const btn = document.createElement('button');
         btn.className = 'mobile-menu-btn';
-        btn.innerHTML = '<i class="fas fa-bars"></i>';
+        btn.setAttribute('aria-label', 'Abrir menu de navegação');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', 'main-navigation');
+        btn.type = 'button';
+        btn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
         headerNav.appendChild(btn);
 
         btn.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
-            btn.querySelector('i').classList.toggle('fa-bars');
-            btn.querySelector('i').classList.toggle('fa-times');
+            const isOpen = navLinks.classList.toggle('nav-active');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            btn.setAttribute('aria-label', isOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+            const icon = btn.querySelector('i');
+            icon.classList.toggle('fa-bars', !isOpen);
+            icon.classList.toggle('fa-times', isOpen);
+        });
+
+        // Close mobile menu when clicking a link (except dropdown toggles)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && !link.closest('.dropdown-menu')) {
+                    navLinks.classList.remove('nav-active');
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.setAttribute('aria-label', 'Abrir menu de navegação');
+                    const icon = btn.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
         });
     }
 
@@ -81,12 +103,17 @@ function initMobileMenu() {
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {
         const link = dropdown.querySelector('a');
+        if (!link) return;
+        link.setAttribute('aria-haspopup', 'true');
+        link.setAttribute('aria-expanded', 'false');
+
         link.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
                 const target = e.target.closest('a');
                 if (target && target.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
-                    dropdown.classList.toggle('active');
+                    const isActive = dropdown.classList.toggle('active');
+                    link.setAttribute('aria-expanded', isActive ? 'true' : 'false');
                 }
             }
         });
@@ -94,6 +121,15 @@ function initMobileMenu() {
 }
 
 // Cart Logic
+function parsePrice(priceString) {
+    if (!priceString) return 0;
+    return parseFloat(priceString.replace('R$ ', '').replace(/\./g, '').replace(',', '.'));
+}
+
+function formatPrice(value) {
+    return 'R$ ' + value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
 function addToCart(title, price, imgSrc) {
     let cart = JSON.parse(localStorage.getItem('leantech_cart')) || [];
 
@@ -124,9 +160,266 @@ function updateCartCounter() {
     }
 }
 
+function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('leantech_cart')) || [];
+    const container = document.getElementById('cart-content');
+    if (!container) return;
+
+    if (cart.length === 0) {
+        container.innerHTML = `
+            <div class="empty-cart">
+                <i class="fas fa-shopping-basket"></i>
+                <h3>Seu carrinho está vazio</h3>
+                <p style="margin: 1rem 0 2rem;">Explore nossos produtos e adicione seus itens favoritos.</p>
+                <a href="produtos-informatica.html" class="btn-cta">Ver Computadores & Peças</a>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `<table class="cart-table"><tbody>`;
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const itemPrice = parsePrice(item.price);
+        total += itemPrice * item.quantity;
+
+        html += `
+            <tr class="cart-item">
+                <td><img src="${item.img}" alt="${item.title}"></td>
+                <td>
+                    <div class="cart-item-title">${item.title}</div>
+                </td>
+                <td>
+                    <div class="cart-item-price">${item.price}</div>
+                </td>
+                <td>
+                    <div class="quantity-control">
+                        <button class="btn-qty" onclick="updateQuantity(${index}, -1)" aria-label="Diminuir quantidade"><i class="fas fa-minus"></i></button>
+                        <span>${item.quantity}</span>
+                        <button class="btn-qty" onclick="updateQuantity(${index}, 1)" aria-label="Aumentar quantidade"><i class="fas fa-plus"></i></button>
+                    </div>
+                </td>
+                <td>
+                    <button class="remove-item" onclick="removeItem(${index})" aria-label="Remover item" style="background: none; border: none;"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+        `;
+    });
+
+    html += `
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Produtos:</span>
+                <span>${cart.length} itens</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Total:</span>
+                <span>${formatPrice(total)}</span>
+            </div>
+            <button onclick="checkout()" class="btn-cta" style="width: 100%; border: none; margin-top: 1.5rem; cursor: pointer;">
+                <i class="fab fa-whatsapp"></i> Finalizar Pedido
+            </button>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+
+function updateQuantity(index, delta) {
+    let cart = JSON.parse(localStorage.getItem('leantech_cart')) || [];
+    cart[index].quantity += delta;
+
+    if (cart[index].quantity < 1) {
+        cart.splice(index, 1);
+    }
+
+    localStorage.setItem('leantech_cart', JSON.stringify(cart));
+    loadCart();
+    updateCartCounter();
+}
+
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem('leantech_cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('leantech_cart', JSON.stringify(cart));
+    loadCart();
+    updateCartCounter();
+}
+
+function checkout() {
+    const cart = JSON.parse(localStorage.getItem('leantech_cart')) || [];
+    let message = "Olá! Gostaria de fazer um pedido:\n\n";
+    let total = 0;
+
+    cart.forEach(item => {
+        message += `• ${item.title} (${item.quantity}x) - ${item.price}\n`;
+        total += parsePrice(item.price) * item.quantity;
+    });
+
+    message += `\n*Total estimado: ${formatPrice(total)}*`;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/551238333927?text=${encodedMessage}`, '_blank');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     updateCartCounter();
+    initProductCards();
+    initMapLazyLoad();
+
+    // Initialize cart page if on cart page
+    if (document.getElementById('cart-content') && typeof loadCart === 'function') {
+        loadCart();
+    }
+});
+
+// Lazy load Google Maps iframe
+function initMapLazyLoad() {
+    const mapIframe = document.querySelector('iframe[data-src]');
+    if (!mapIframe) return;
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    mapIframe.src = mapIframe.dataset.src;
+                    observer.unobserve(mapIframe);
+                }
+            });
+        }, { rootMargin: '200px' });
+        observer.observe(mapIframe);
+    } else {
+        mapIframe.src = mapIframe.dataset.src;
+    }
+}
+
+// Product Modal & Cart
+function initProductCards() {
+    document.querySelectorAll('.store-card').forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Ver detalhes de ${card.querySelector('.team-name')?.textContent || 'produto'}`);
+
+        card.addEventListener('click', () => openCardProductModal(card));
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openCardProductModal(card);
+            }
+        });
+    });
+}
+
+function openCardProductModal(card) {
+    const name = card.dataset.name || card.querySelector('.team-name')?.textContent || '';
+    const image = card.dataset.image || card.querySelector('.team-photo img')?.src || '';
+    const description = card.dataset.description || '';
+    const price = card.dataset.price || card.querySelector('.product-price')?.textContent || '';
+    const action = card.dataset.action || 'cart';
+    openProductModal(name, image, description, price, action);
+}
+
+function openProductModal(name, image, description, price, action = 'cart') {
+    const modal = document.getElementById('productModal');
+    if (!modal) return;
+
+    const nameEl = document.getElementById('modalProductName') || document.getElementById('modalTitle');
+    const imageEl = document.getElementById('modalProductImage') || document.getElementById('modalImg');
+    const descEl = document.getElementById('modalProductDescription') || document.getElementById('modalDesc');
+    const priceEl = document.getElementById('modalProductPrice') || document.getElementById('modalPrice');
+    const actionBtn = document.getElementById('modalActionBtn');
+
+    if (nameEl) nameEl.textContent = name;
+    if (descEl) descEl.textContent = description;
+    if (priceEl) priceEl.textContent = price;
+
+    if (imageEl) {
+        if (image && image !== '') {
+            imageEl.src = image;
+            imageEl.style.display = 'block';
+            if (imageEl.parentElement) {
+                imageEl.parentElement.innerHTML = '';
+                imageEl.parentElement.appendChild(imageEl);
+                imageEl.parentElement.style.background = '#f8fafc';
+            }
+        } else {
+            imageEl.style.display = 'none';
+            if (imageEl.parentElement) {
+                imageEl.parentElement.innerHTML = '<i class="fas fa-tag" style="font-size: 6rem; color: #94a3b8;"></i>';
+                imageEl.parentElement.style.background = 'linear-gradient(135deg, #f1f5f9, #e2e8f0)';
+                imageEl.parentElement.style.display = 'flex';
+                imageEl.parentElement.style.alignItems = 'center';
+                imageEl.parentElement.style.justifyContent = 'center';
+                imageEl.parentElement.style.minHeight = '300px';
+            }
+        }
+    }
+
+    if (actionBtn) {
+        window.currentProduct = { title: name, price, img: image };
+        if (action === 'cart') {
+            actionBtn.onclick = () => {
+                addToCart(name, price, image);
+                closeProductModal();
+            };
+            actionBtn.innerHTML = '<i class="fas fa-shopping-cart"></i> Adicionar ao carrinho';
+            actionBtn.removeAttribute('href');
+            actionBtn.removeAttribute('target');
+        } else {
+            const msg = encodeURIComponent('Olá! Gostaria de um orçamento para: ' + name);
+            actionBtn.href = 'https://wa.me/551238333927?text=' + msg;
+            actionBtn.target = '_blank';
+            actionBtn.onclick = null;
+            actionBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Solicitar Orçamento';
+        }
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+    const modal = document.getElementById('productModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+
+    // Reset the modal image container
+    const imgContainer = modal.querySelector('.modal-image');
+    if (imgContainer) {
+        imgContainer.innerHTML = '<img id="modalProductImage" src="" alt="">';
+    }
+}
+
+function filterProducts(category) {
+    const cards = document.querySelectorAll('.store-card');
+    cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.style.display = 'block';
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+            }, 10);
+        } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 300);
+        }
+    });
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('productModal');
+    if (modal && event.target === modal) {
+        closeProductModal();
+    }
 });
 
 // Scroll Reveal Animation (Intersection Observer)
